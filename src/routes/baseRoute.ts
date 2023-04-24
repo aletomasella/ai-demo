@@ -11,10 +11,13 @@ baseRoute.get("/", async (req, res) => {
         message: "Please provide a prompt",
       });
 
-    const response = await openai.createCompletion({
-      model: "text-davinci-003",
-      prompt: prompt.toString(),
-      max_tokens: 5,
+    const response = await openai.createChatCompletion({
+      model: "gpt-3.5-turbo",
+      messages: [
+        // { role: "system", content: "You are a helpful assistant." },
+        { role: "user", content: prompt as string },
+      ],
+      max_tokens: 150,
       temperature: 0.9,
     });
 
