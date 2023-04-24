@@ -1,1 +1,1 @@
-# ai-demo
+# Using Open AI API
